@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  Proyecto: Derecho Laboral — Sitio web educativo
-  Autor:    Jhoger Guerrero
-  Creado por: Jhoger Guerrero
-  Año:      2026
-  Descripción: Página web creativa sobre Derecho Laboral,
-               dividida por secciones. Diseño profesional.
+  Proyecto: Derecho Laboral — Sitio web educativo (Colombia)
+  Autor: Jhoger Guerrero · 2026
+  Normatividad vigente: Ley 2466 de 2025 (Reforma Laboral),
+  Ley 2452 de 2025 (nuevo Código Procesal del Trabajo y de la
+  Seguridad Social), Código Sustantivo del Trabajo.
   ============================================================
 -->
 <html lang="es">
@@ -14,197 +13,220 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Derecho Laboral · Jhoger Guerrero</title>
-  <meta name="description" content="Sitio web educativo sobre Derecho Laboral: principios, contrato de trabajo, derechos del trabajador, obligaciones del empleador, jornada, salario y seguridad social. Creado por Jhoger Guerrero." />
+  <meta name="description" content="Guía educativa sobre Derecho Laboral en Colombia conforme a la Ley 2466 de 2025 y la Ley 2452 de 2025: reforma laboral, liquidador interactivo, qué hacer en caso de despido, conciliación y enlaces oficiales. Autor: Jhoger Guerrero." />
   <meta name="author" content="Jhoger Guerrero" />
   <meta name="theme-color" content="#006B62" />
-
   <meta property="og:title" content="Derecho Laboral · Jhoger Guerrero" />
-  <meta property="og:description" content="Guía educativa e interactiva sobre Derecho Laboral. Autor: Jhoger Guerrero." />
+  <meta property="og:description" content="Derecho Laboral en Colombia actualizado a la Ley 2466 de 2025, con liquidador interactivo y enlaces oficiales. Autor: Jhoger Guerrero." />
   <meta property="og:type" content="website" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23006B62'/%3E%3Cg fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M50 24v52'/%3E%3Cpath d='M30 76h40'/%3E%3Cpath d='M26 34h48'/%3E%3Cpath d='M26 34l-10 20h20z'/%3E%3Cpath d='M74 34l-10 20h20z'/%3E%3C/g%3E%3C/svg%3E" />
+
   <style>
-    :root {
-      --green: #006B62;
-      --green-700: #004D46;
-      --green-500: #0E8C7E;
-      --green-300: #5FB0A6;
-      --mint: #E8F3F1;
-      --mint-2: #F3F9F8;
-      --gold: #C6A15B;
-      --ink: #17221F;
-      --ink-soft: #46514E;
-      --line: #E2EAE8;
-      --white: #FFFFFF;
-      --bg: #FBFDFC;
-      --radius: 18px;
-      --radius-sm: 12px;
-      --shadow-sm: 0 1px 2px rgba(0,77,70,.06), 0 4px 16px rgba(0,77,70,.06);
-      --shadow-md: 0 10px 40px rgba(0,77,70,.12);
-      --maxw: 1120px;
-      --ease: cubic-bezier(.22,.61,.36,1);
+    :root{
+      --green:#006B62; --green-700:#004D46; --green-500:#0E8C7E; --green-300:#5FB0A6;
+      --mint:#E8F3F1; --mint-2:#F3F9F8; --gold:#C6A15B; --ink:#17221F; --ink-soft:#46514E;
+      --line:#E2EAE8; --bg:#FBFDFC; --radius:18px; --radius-sm:12px;
+      --shadow-sm:0 1px 2px rgba(0,77,70,.06),0 4px 16px rgba(0,77,70,.06);
+      --shadow-md:0 10px 40px rgba(0,77,70,.12); --maxw:1120px; --ease:cubic-bezier(.22,.61,.36,1);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.12; letter-spacing: -.01em; }
-    a { color: inherit; text-decoration: none; }
-    img, svg { display: block; max-width: 100%; }
-    section { position: relative; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-    #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--green-500), var(--green), var(--gold)); z-index: 200; transition: width .1s linear; }
-    header.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(251,253,252,.72); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s, background .3s; }
-    header.nav.scrolled { border-bottom-color: var(--line); box-shadow: 0 6px 24px rgba(0,77,70,.05); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: -.01em; }
-    .brand .logo { width: 38px; height: 38px; border-radius: 11px; background: var(--green); display: grid; place-items: center; box-shadow: var(--shadow-sm); }
-    .brand .logo svg { width: 22px; height: 22px; }
-    .brand small { display: block; font-weight: 500; font-size: .72rem; color: var(--ink-soft); letter-spacing: .02em; }
-    .brand b { font-size: 1.02rem; }
-    nav.links { display: flex; align-items: center; gap: 4px; }
-    nav.links a { font-size: .9rem; font-weight: 500; color: var(--ink-soft); padding: 9px 14px; border-radius: 10px; transition: color .2s, background .2s; position: relative; }
-    nav.links a:hover { color: var(--green); background: var(--mint); }
-    nav.links a.active { color: var(--green); }
-    .nav-cta { background: var(--green); color: #fff !important; padding: 10px 18px !important; border-radius: 11px !important; font-weight: 600 !important; box-shadow: var(--shadow-sm); transition: transform .2s var(--ease), box-shadow .2s; }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
-    .burger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
-    .burger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; margin: 5px 0; transition: .3s; }
-    .hero { padding: 150px 0 90px; position: relative; overflow: hidden; }
-    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(60% 55% at 85% 12%, rgba(14,140,126,.12), transparent 60%), radial-gradient(45% 40% at 5% 90%, rgba(198,161,91,.10), transparent 60%); }
-    .blob { position: absolute; z-index: -1; filter: blur(2px); opacity: .5; }
-    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--mint); color: var(--green-700); font-weight: 600; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); }
-    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(0,107,98,.15); }
-    .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.3rem); margin: 22px 0 18px; }
-    .hero h1 .accent { color: var(--green); font-style: italic; }
-    .hero p.lead { font-size: 1.16rem; color: var(--ink-soft); max-width: 36ch; }
-    .hero-actions { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: .98rem; padding: 14px 26px; border-radius: 13px; cursor: pointer; border: 1px solid transparent; transition: transform .2s var(--ease), box-shadow .2s, background .2s, color .2s; }
-    .btn-primary { background: var(--green); color: #fff; box-shadow: var(--shadow-sm); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
-    .btn-ghost:hover { border-color: var(--green-300); color: var(--green); transform: translateY(-2px); }
-    .hero-illus { position: relative; }
-    .hero-card { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-md); padding: 10px; position: relative; overflow: hidden; }
-    .hero-card .pane { background: linear-gradient(160deg, var(--green-700), var(--green)); border-radius: 16px; padding: 30px; color: #fff; }
-    .float-badge { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-md); padding: 12px 15px; display: flex; align-items: center; gap: 11px; font-size: .82rem; font-weight: 600; }
-    .float-badge .ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; }
-    .fb-1 { top: 18px; right: -16px; animation: floaty 5s ease-in-out infinite; }
-    .fb-2 { bottom: 26px; left: -18px; animation: floaty 6s ease-in-out infinite .6s; }
-    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
-    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 72px; }
-    .stat { text-align: center; padding: 22px 14px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
-    .stat .num { font-family: 'Fraunces',serif; font-size: 2.3rem; color: var(--green); font-weight: 600; }
-    .stat .lbl { font-size: .84rem; color: var(--ink-soft); margin-top: 4px; }
-    .sec { padding: 92px 0; }
-    .sec.tint { background: linear-gradient(180deg, var(--mint-2), #fff); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .sec-head { max-width: 680px; margin: 0 auto 54px; text-align: center; }
-    .sec-tag { color: var(--green); font-weight: 700; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
-    .sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); margin: 12px 0 14px; }
-    .sec-head p { color: var(--ink-soft); font-size: 1.06rem; }
-    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
-    .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); transition: transform .3s var(--ease), box-shadow .3s, border-color .3s; }
-    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--green-300); }
-    .card .icon { width: 54px; height: 54px; border-radius: 14px; background: var(--mint); display: grid; place-items: center; margin-bottom: 18px; }
-    .card .icon svg { width: 28px; height: 28px; stroke: var(--green); }
-    .card h3 { font-size: 1.22rem; margin-bottom: 9px; }
-    .card p { color: var(--ink-soft); font-size: .96rem; }
-    .card .num-tag { font-family:'Fraunces',serif; font-size: .9rem; color: var(--gold); font-weight: 600; }
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-    .plist { display: flex; flex-direction: column; gap: 16px; }
-    .pitem { display: flex; gap: 16px; padding: 18px; border-radius: var(--radius-sm); background: #fff; border: 1px solid var(--line); transition: background .25s, transform .25s; }
-    .pitem:hover { background: var(--mint-2); transform: translateX(4px); }
-    .pitem .n { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 11px; background: var(--green); color: #fff; display: grid; place-items: center; font-family:'Fraunces',serif; font-weight: 600; }
-    .pitem h4 { font-size: 1.04rem; margin-bottom: 3px; }
-    .pitem p { font-size: .92rem; color: var(--ink-soft); }
-    .quote-card { background: linear-gradient(160deg, var(--green-700), var(--green)); color: #fff; border-radius: 24px; padding: 42px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
-    .quote-card .mark { font-family:'Fraunces',serif; font-size: 6rem; line-height: .6; opacity: .25; }
-    .quote-card blockquote { font-family:'Fraunces',serif; font-size: 1.5rem; margin: 10px 0 20px; }
-    .quote-card cite { font-style: normal; font-size: .9rem; opacity: .85; }
-    .timeline { position: relative; max-width: 820px; margin: 0 auto; padding-left: 8px; }
-    .timeline::before { content:""; position:absolute; left: 25px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--green-300), var(--line)); }
-    .tl-step { position: relative; padding: 0 0 34px 72px; }
-    .tl-step:last-child { padding-bottom: 0; }
-    .tl-dot { position: absolute; left: 10px; top: 2px; width: 32px; height: 32px; border-radius: 50%; background: #fff; border: 2px solid var(--green); color: var(--green); display: grid; place-items: center; font-weight: 700; font-size: .85rem; box-shadow: 0 0 0 5px var(--mint); }
-    .tl-step h4 { font-size: 1.12rem; }
-    .tl-step p { color: var(--ink-soft); font-size: .95rem; }
-    .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 26px; }
-    .check { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
-    .check .tick { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--mint); display: grid; place-items: center; }
-    .check .tick svg { width: 16px; height: 16px; stroke: var(--green); }
-    .check b { display:block; font-size: .98rem; }
-    .check span { font-size: .88rem; color: var(--ink-soft); }
-    .faq { max-width: 780px; margin: 0 auto; }
-    .q { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 12px; background: #fff; overflow: hidden; transition: box-shadow .25s, border-color .25s; }
-    .q.open { box-shadow: var(--shadow-sm); border-color: var(--green-300); }
-    .q button { width: 100%; text-align: left; background: none; border: 0; padding: 20px 22px; font: inherit; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--ink); }
-    .q .plus { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--green); color: var(--green); display: grid; place-items: center; transition: transform .3s; font-size: 1.1rem; }
-    .q.open .plus { transform: rotate(45deg); background: var(--green); color: #fff; }
-    .q .a { max-height: 0; overflow: hidden; transition: max-height .35s var(--ease); }
-    .q .a p { padding: 0 22px 20px; color: var(--ink-soft); font-size: .96rem; }
-    .cta-band { background: linear-gradient(135deg, var(--green-700), var(--green)); color: #fff; border-radius: 28px; padding: 60px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
-    .cta-band h2 { font-size: clamp(1.8rem,3.4vw,2.6rem); margin-bottom: 14px; }
-    .cta-band p { opacity: .9; max-width: 48ch; margin: 0 auto 26px; }
-    .cta-band .btn-white { background: #fff; color: var(--green-700); }
-    .cta-band .ring { position: absolute; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; }
-    footer { background: var(--ink); color: #cdd6d3; padding: 58px 0 30px; }
-    .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
-    footer .brand b { color: #fff; }
-    footer .brand small { color: #9fb0ac; }
-    footer h5 { color: #fff; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
-    footer a { color: #cdd6d3; font-size: .93rem; display: block; padding: 5px 0; transition: color .2s; }
-    footer a:hover { color: var(--green-300); }
-    .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 42px; padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .85rem; color: #9fb0ac; }
-    .foot-bottom b { color: #fff; }
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-    .reveal.in { opacity: 1; transform: none; }
-    .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
-    @media (max-width: 920px) {
-      .hero-grid, .split { grid-template-columns: 1fr; gap: 40px; }
-      .hero-illus { order: -1; max-width: 460px; margin: 0 auto; }
-      .cards { grid-template-columns: 1fr 1fr; }
-      .foot-grid { grid-template-columns: 1fr 1fr; }
-      .stats { grid-template-columns: 1fr 1fr; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+    a{color:inherit;text-decoration:none}
+    img,svg{display:block;max-width:100%}
+    section{position:relative}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    #progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--green-500),var(--green),var(--gold));z-index:200;transition:width .1s linear}
+    header.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,253,252,.72);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+    header.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 24px rgba(0,77,70,.05)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:-.01em}
+    .brand .logo{width:38px;height:38px;border-radius:11px;background:var(--green);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+    .brand .logo svg{width:22px;height:22px}
+    .brand small{display:block;font-weight:500;font-size:.72rem;color:var(--ink-soft);letter-spacing:.02em}
+    .brand .site{font-size:1.02rem;font-weight:700}
+    nav.links{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+    nav.links a{font-size:.86rem;font-weight:500;color:var(--ink-soft);padding:8px 11px;border-radius:10px;transition:color .2s,background .2s}
+    nav.links a:hover{color:var(--green);background:var(--mint)}
+    nav.links a.active{color:var(--green)}
+    .nav-cta{background:var(--green);color:#fff !important;padding:9px 15px !important;border-radius:11px !important;font-weight:600 !important;box-shadow:var(--shadow-sm)}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+    .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+    .burger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;margin:5px 0;transition:.3s}
+    .hero{padding:140px 0 70px;position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 55% at 85% 12%,rgba(14,140,126,.12),transparent 60%),radial-gradient(45% 40% at 5% 90%,rgba(198,161,91,.10),transparent 60%)}
+    .blob{position:absolute;z-index:-1;filter:blur(2px);opacity:.5}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--mint);color:var(--green-700);font-weight:600;font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;padding:7px 14px;border-radius:999px;border:1px solid var(--line)}
+    .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(0,107,98,.15)}
+    .hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);margin:22px 0 18px}
+    .hero h1 .accent{color:var(--green);font-style:italic}
+    .hero p.lead{font-size:1.14rem;color:var(--ink-soft);max-width:40ch}
+    .hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.96rem;padding:14px 24px;border-radius:13px;cursor:pointer;border:1px solid transparent;transition:transform .2s var(--ease),box-shadow .2s,background .2s,color .2s}
+    .btn-primary{background:var(--green);color:#fff;box-shadow:var(--shadow-sm)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+    .btn-ghost:hover{border-color:var(--green-300);color:var(--green);transform:translateY(-2px)}
+    .hero-illus{position:relative}
+    .hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-md);padding:10px;position:relative;overflow:hidden}
+    .hero-card .pane{background:linear-gradient(160deg,var(--green-700),var(--green));border-radius:16px;padding:30px;color:#fff}
+    .float-badge{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-md);padding:12px 15px;display:flex;align-items:center;gap:11px;font-size:.82rem;font-weight:600}
+    .float-badge .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center}
+    .fb-1{top:18px;right:-16px;animation:floaty 5s ease-in-out infinite}
+    .fb-2{bottom:26px;left:-18px;animation:floaty 6s ease-in-out infinite .6s}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:64px}
+    .stat{text-align:center;padding:22px 14px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+    .stat .num{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--green);font-weight:600}
+    .stat .lbl{font-size:.82rem;color:var(--ink-soft);margin-top:4px}
+    .sec{padding:84px 0}
+    .sec.tint{background:linear-gradient(180deg,var(--mint-2),#fff);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .sec-head{max-width:720px;margin:0 auto 50px;text-align:center}
+    .sec-tag{color:var(--green);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+    .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.8rem);margin:12px 0 14px}
+    .sec-head p{color:var(--ink-soft);font-size:1.04rem}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--green-300)}
+    .card .icon{width:54px;height:54px;border-radius:14px;background:var(--mint);display:grid;place-items:center;margin-bottom:18px}
+    .card .icon svg{width:28px;height:28px;stroke:var(--green)}
+    .card h3{font-size:1.2rem;margin-bottom:9px}
+    .card p{color:var(--ink-soft);font-size:.95rem}
+    .card .num-tag{font-family:'Fraunces',serif;font-size:.9rem;color:var(--gold);font-weight:600}
+    .pill{display:inline-block;margin-top:14px;font-size:.76rem;font-weight:600;color:var(--green-700);background:var(--mint);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .plist{display:flex;flex-direction:column;gap:16px}
+    .pitem{display:flex;gap:16px;padding:18px;border-radius:var(--radius-sm);background:#fff;border:1px solid var(--line);transition:background .25s,transform .25s}
+    .pitem:hover{background:var(--mint-2);transform:translateX(4px)}
+    .pitem .n{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:var(--green);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600}
+    .pitem h4{font-size:1.02rem;margin-bottom:3px}
+    .pitem p{font-size:.9rem;color:var(--ink-soft)}
+    .quote-card{background:linear-gradient(160deg,var(--green-700),var(--green));color:#fff;border-radius:24px;padding:42px;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+    .quote-card .mark{font-family:'Fraunces',serif;font-size:6rem;line-height:.6;opacity:.25}
+    .quote-card blockquote{font-family:'Fraunces',serif;font-size:1.45rem;margin:10px 0 20px}
+    .quote-card cite{font-style:normal;font-size:.9rem;opacity:.85}
+    .timeline{position:relative;max-width:820px;margin:0 auto;padding-left:8px}
+    .timeline::before{content:"";position:absolute;left:25px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--green-300),var(--line))}
+    .tl-step{position:relative;padding:0 0 34px 72px}
+    .tl-step:last-child{padding-bottom:0}
+    .tl-dot{position:absolute;left:10px;top:2px;width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid var(--green);color:var(--green);display:grid;place-items:center;font-weight:700;font-size:.85rem;box-shadow:0 0 0 5px var(--mint)}
+    .tl-step h4{font-size:1.1rem}
+    .tl-step p{color:var(--ink-soft);font-size:.94rem}
+    .checklist{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+    .check{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+    .check .tick{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--mint);display:grid;place-items:center}
+    .check .tick svg{width:16px;height:16px;stroke:var(--green)}
+    .check b{display:block;font-size:.96rem}
+    .check span{font-size:.87rem;color:var(--ink-soft)}
+    .liq{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .liq-form,.liq-res{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm)}
+    .liq-form h3,.liq-res h3{font-size:1.15rem;margin-bottom:6px}
+    .liq-form .fh{font-size:.88rem;color:var(--ink-soft);margin-bottom:18px}
+    .field{margin-bottom:15px}
+    .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px}
+    .field input,.field select{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem;background:var(--mint-2);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(0,107,98,.12);background:#fff}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .chk{display:flex;align-items:center;gap:10px;background:var(--mint-2);border:1px solid var(--line);padding:12px 13px;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .chk input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
+    .liq-res{background:linear-gradient(170deg,#fff,var(--mint-2));min-height:100%}
+    .res-line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+    .res-line span:first-child{color:var(--ink-soft)}
+    .res-line b{font-variant-numeric:tabular-nums}
+    .res-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding:16px 18px;background:var(--green);color:#fff;border-radius:12px}
+    .res-total span{font-size:.9rem;opacity:.9}
+    .res-total b{font-family:'Fraunces',serif;font-size:1.5rem}
+    .res-empty{color:var(--ink-soft);font-size:.92rem;padding:30px 0;text-align:center}
+    .note{font-size:.78rem;color:var(--ink-soft);margin-top:14px;line-height:1.5}
+    .faq{max-width:820px;margin:0 auto}
+    .q{border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:12px;background:#fff;overflow:hidden;transition:box-shadow .25s,border-color .25s}
+    .q.open{box-shadow:var(--shadow-sm);border-color:var(--green-300)}
+    .q button{width:100%;text-align:left;background:none;border:0;padding:19px 22px;font:inherit;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink)}
+    .q .qt{display:flex;align-items:center;gap:13px}
+    .q .qt .qi{flex:0 0 auto;width:34px;height:34px;border-radius:9px;background:var(--mint);display:grid;place-items:center}
+    .q .qt .qi svg{width:19px;height:19px;stroke:var(--green)}
+    .q .plus{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--green);color:var(--green);display:grid;place-items:center;transition:transform .3s;font-size:1.1rem}
+    .q.open .plus{transform:rotate(45deg);background:var(--green);color:#fff}
+    .q .a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+    .q .a .ai{padding:0 22px 20px 22px;color:var(--ink-soft);font-size:.95rem}
+    .q .a .ai ol,.q .a .ai ul{margin:8px 0 0 20px}
+    .q .a .ai li{margin-bottom:5px}
+    .q .a .ai .ref{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:600;color:var(--green-700);background:var(--mint);padding:4px 10px;border-radius:999px}
+    .links{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .lk{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+    .lk:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--green-300)}
+    .lk .lkic{flex:0 0 auto;width:44px;height:44px;border-radius:11px;background:var(--mint);display:grid;place-items:center}
+    .lk .lkic svg{width:22px;height:22px;stroke:var(--green)}
+    .lk h4{font-size:1rem;margin-bottom:3px;display:flex;align-items:center;gap:7px}
+    .lk h4 .ext{width:13px;height:13px;stroke:var(--ink-soft)}
+    .lk p{font-size:.84rem;color:var(--ink-soft)}
+    .lk .dom{font-size:.76rem;color:var(--green);font-weight:600;margin-top:4px}
+    .disc{background:#FFFBEF;border:1px solid #EADFC2;border-radius:var(--radius-sm);padding:16px 20px;display:flex;gap:13px;align-items:flex-start;max-width:900px;margin:0 auto}
+    .disc svg{flex:0 0 auto;width:22px;height:22px;stroke:var(--gold);margin-top:2px}
+    .disc p{font-size:.85rem;color:#6b5d35}
+    .cta-band{background:linear-gradient(135deg,var(--green-700),var(--green));color:#fff;border-radius:28px;padding:56px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-md)}
+    .cta-band h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px}
+    .cta-band p{opacity:.9;max-width:52ch;margin:0 auto 24px}
+    .cta-band .btn-white{background:#fff;color:var(--green-700)}
+    .cta-band .ring{position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%}
+    footer{background:var(--ink);color:#cdd6d3;padding:56px 0 30px}
+    .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+    footer .brand .site{color:#fff}
+    footer .brand small{color:#9fb0ac}
+    footer h5{color:#fff;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+    footer a{color:#cdd6d3;font-size:.92rem;display:block;padding:5px 0;transition:color .2s}
+    footer a:hover{color:var(--green-300)}
+    .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:42px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:#9fb0ac}
+    .foot-name{color:#fff;font-weight:600}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+    .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+    @media (max-width:980px){
+      nav.links{display:none}
+      .burger{display:block}
+      nav.links.show{display:flex;position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);padding:14px;gap:2px;box-shadow:var(--shadow-md)}
+      nav.links.show a{padding:13px 16px}
     }
-    @media (max-width: 680px) {
-      nav.links { position: fixed; inset: 72px 0 auto 0; flex-direction: column; align-items: stretch; background: #fff; border-bottom: 1px solid var(--line); padding: 14px; gap: 2px; transform: translateY(-130%); transition: transform .35s var(--ease); box-shadow: var(--shadow-md); }
-      nav.links.show { transform: translateY(0); }
-      nav.links a { padding: 13px 16px; }
-      .burger { display: block; }
-      .cards, .checklist, .foot-grid, .stats { grid-template-columns: 1fr; }
-      .hero { padding: 120px 0 60px; }
-      .sec { padding: 64px 0; }
-      .cta-band, .quote-card { padding: 36px 26px; }
-      html { scroll-padding-top: 76px; }
+    @media (max-width:900px){
+      .hero-grid,.split,.liq{grid-template-columns:1fr;gap:38px}
+      .hero-illus{order:-1;max-width:460px;margin:0 auto}
+      .cards,.links{grid-template-columns:1fr 1fr}
+      .foot-grid{grid-template-columns:1fr 1fr}
+      .stats{grid-template-columns:1fr 1fr}
     }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .reveal { transition: none; } }
+    @media (max-width:640px){
+      .cards,.checklist,.foot-grid,.stats,.links,.row2{grid-template-columns:1fr}
+      .hero{padding:116px 0 54px}.sec{padding:58px 0}
+      .cta-band,.quote-card{padding:34px 24px}
+      html{scroll-padding-top:76px}
+    }
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}.reveal{transition:none}}
   </style>
 </head>
 <body>
-  <!-- Autor del sitio: Jhoger Guerrero -->
+  <!-- Sitio creado por Jhoger Guerrero -->
   <div id="progress"></div>
 
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
       <a href="#inicio" class="brand" aria-label="Inicio">
-        <span class="logo">
-          <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M50 22v56"/><path d="M28 78h44"/><path d="M24 34h52"/>
-            <path d="M24 34l-11 22h22z"/><path d="M76 34l-11 22h22z"/>
-          </svg>
-        </span>
-        <span><b>Derecho Laboral</b><small>por Jhoger Guerrero</small></span>
+        <span class="logo"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 22v56"/><path d="M28 78h44"/><path d="M24 34h52"/><path d="M24 34l-11 22h22z"/><path d="M76 34l-11 22h22z"/></svg></span>
+        <span><span class="site">Derecho Laboral</span><small>por Jhoger Guerrero</small></span>
       </a>
       <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
       <nav class="links" id="links">
-        <a href="#concepto">Concepto</a>
-        <a href="#principios">Principios</a>
+        <a href="#reforma">Reforma 2025</a>
         <a href="#contrato">Contrato</a>
         <a href="#derechos">Derechos</a>
-        <a href="#empleador">Empleador</a>
-        <a href="#faq">FAQ</a>
+        <a href="#liquidador">Liquidador</a>
+        <a href="#casos">¿Qué hacer?</a>
+        <a href="#terminacion">Terminación</a>
+        <a href="#enlaces">Enlaces</a>
         <a href="#contacto" class="nav-cta">Contacto</a>
       </nav>
     </div>
@@ -215,14 +237,14 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="reveal in">
-          <span class="eyebrow"><span class="dot"></span>Guía educativa interactiva</span>
-          <h1>El <span class="accent">Derecho Laboral</span> explicado de forma clara.</h1>
-          <p class="lead">Conoce tus derechos y deberes en el trabajo: desde el contrato hasta la seguridad social, en un solo lugar y con lenguaje sencillo.</p>
+          <span class="eyebrow"><span class="dot"></span>Actualizado · Ley 2466 de 2025</span>
+          <h1>El <span class="accent">Derecho Laboral</span> en Colombia, claro y al día.</h1>
+          <p class="lead">Conoce tus derechos y deberes conforme a la reforma laboral (Ley 2466 de 2025) y el nuevo Código Procesal del Trabajo (Ley 2452 de 2025). Incluye liquidador interactivo y enlaces oficiales.</p>
           <div class="hero-actions">
-            <a href="#concepto" class="btn btn-primary">Empezar a explorar
+            <a href="#liquidador" class="btn btn-primary">Usar el liquidador
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#contrato" class="btn btn-ghost">El contrato de trabajo</a>
+            <a href="#casos" class="btn btn-ghost">¿Qué hacer en caso de…?</a>
           </div>
         </div>
         <div class="hero-illus reveal in d1">
@@ -230,101 +252,100 @@
             <div class="pane">
               <svg viewBox="0 0 360 260" width="100%" fill="none">
                 <g stroke="rgba(255,255,255,.9)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="180" y1="48" x2="180" y2="196"/>
-                  <line x1="150" y1="196" x2="210" y2="196"/>
-                  <line x1="120" y1="72" x2="240" y2="72"/>
+                  <line x1="180" y1="48" x2="180" y2="196"/><line x1="150" y1="196" x2="210" y2="196"/><line x1="120" y1="72" x2="240" y2="72"/>
                   <circle cx="180" cy="56" r="7" fill="#fff" stroke="none"/>
-                  <path d="M120 72 L104 120 H136 Z" fill="rgba(255,255,255,.14)"/>
-                  <path d="M240 72 L224 120 H256 Z" fill="rgba(255,255,255,.14)"/>
-                  <line x1="104" y1="120" x2="136" y2="120"/>
-                  <line x1="224" y1="120" x2="256" y2="120"/>
+                  <path d="M120 72 L104 120 H136 Z" fill="rgba(255,255,255,.14)"/><path d="M240 72 L224 120 H256 Z" fill="rgba(255,255,255,.14)"/>
+                  <line x1="104" y1="120" x2="136" y2="120"/><line x1="224" y1="120" x2="256" y2="120"/>
                 </g>
                 <g opacity=".92">
-                  <circle cx="70" cy="150" r="16" fill="#C6A15B"/>
-                  <path d="M46 210 q24 -34 48 0 Z" fill="#C6A15B"/>
-                  <circle cx="294" cy="150" r="16" fill="#5FB0A6"/>
-                  <path d="M270 210 q24 -34 48 0 Z" fill="#5FB0A6"/>
+                  <circle cx="70" cy="150" r="16" fill="#C6A15B"/><path d="M46 210 q24 -34 48 0 Z" fill="#C6A15B"/>
+                  <circle cx="294" cy="150" r="16" fill="#5FB0A6"/><path d="M270 210 q24 -34 48 0 Z" fill="#5FB0A6"/>
                 </g>
                 <text x="180" y="238" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="Fraunces, serif" font-size="15" font-style="italic">Equilibrio entre las partes</text>
               </svg>
             </div>
           </div>
-          <div class="float-badge fb-1"><span class="ic" style="background:var(--mint)"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="#006B62" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span>Contrato justo</div>
+          <div class="float-badge fb-1"><span class="ic" style="background:var(--mint)"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="#006B62" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span>Trabajo decente</div>
           <div class="float-badge fb-2"><span class="ic" style="background:#FaF4E6"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M5 7h14M5 17h14"/></svg></span>Salario digno</div>
         </div>
       </div>
       <div class="stats">
-        <div class="stat reveal"><div class="num" data-count="48">0</div><div class="lbl">Horas máximas semanales*</div></div>
-        <div class="stat reveal d1"><div class="num" data-count="15">0</div><div class="lbl">Días de vacaciones al año</div></div>
-        <div class="stat reveal d2"><div class="num" data-count="2">0</div><div class="lbl">Primas de servicios al año</div></div>
-        <div class="stat reveal d3"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">Afiliación a seguridad social</div></div>
+        <div class="stat reveal"><div class="num" data-count="42">0</div><div class="lbl">Horas semanales máx. (desde jul. 2026)</div></div>
+        <div class="stat reveal d1"><div class="num" data-count="35" data-suffix="%">0</div><div class="lbl">Recargo nocturno (desde las 7 p. m.)</div></div>
+        <div class="stat reveal d2"><div class="num" data-count="80" data-suffix="%">0</div><div class="lbl">Recargo dominical y festivo (2025)</div></div>
+        <div class="stat reveal d3"><div class="num" data-count="15">0</div><div class="lbl">Días de vacaciones al año</div></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="concepto">
+  <div class="wrap" style="margin:-20px auto 0">
+    <div class="disc reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <p><b>Contenido educativo.</b> Esta página resume la normatividad laboral colombiana vigente a 2026 (Ley 2466 de 2025, Ley 2452 de 2025, Código Sustantivo del Trabajo). Las cifras son de referencia y el liquidador es una estimación. No sustituye la asesoría de un abogado ni los textos oficiales.</p>
+    </div>
+  </div>
+
+  <section class="sec" id="reforma">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-tag">01 · Concepto</span>
-        <h2>¿Qué es el Derecho Laboral?</h2>
-        <p>Es la rama del derecho que regula las relaciones entre trabajadores y empleadores, buscando un equilibrio justo entre la productividad y la dignidad humana.</p>
+        <span class="sec-tag">01 · Reforma laboral</span>
+        <h2>Lo que cambió con la Ley 2466 de 2025</h2>
+        <p>Sancionada el 25 de junio de 2025, la reforma laboral renovó reglas sobre recargos, jornada y tipos de contrato, con aplicación gradual.</p>
       </div>
       <div class="cards">
         <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
-          <h3>Protege al trabajador</h3>
-          <p>Reconoce que el trabajador es la parte más débil de la relación y establece garantías mínimas irrenunciables.</p>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Jornada nocturna desde las 7 p. m.</h3>
+          <p>La noche laboral empieza a las 7:00 p. m. (antes 9:00 p. m.) y va hasta las 6:00 a. m. El recargo nocturno sigue siendo del 35 %.</p>
+          <span class="pill">Rige desde dic. 2025</span>
         </div>
         <div class="card reveal d1">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <h3>Regula la relación</h3>
-          <p>Define reglas claras sobre contratación, jornada, salario, descansos y terminación del vínculo laboral.</p>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <h3>Dominicales y festivos más altos</h3>
+          <p>El recargo sube por etapas: 80 % en 2025, 90 % en 2026 y 100 % desde 2027, sobre el trabajo en domingo o festivo.</p>
+          <span class="pill">80 % → 90 % → 100 %</span>
         </div>
         <div class="card reveal d2">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
-          <h3>Garantiza dignidad</h3>
-          <p>Vela por condiciones justas, seguras y humanas, promoviendo el trabajo como fuente de desarrollo personal.</p>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+          <h3>Contrato indefinido como regla</h3>
+          <p>El contrato a término indefinido es la forma general de contratación. El contrato a término fijo exige requisitos y, de no cumplirse, se entiende indefinido.</p>
+          <span class="pill">Estabilidad</span>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg></div>
+          <h3>Contrato de aprendizaje laboral</h3>
+          <p>El aprendizaje pasa a ser un contrato laboral especial a término fijo, con remuneración y afiliación, reconociéndole mayores garantías al aprendiz.</p>
+          <span class="pill">Nueva naturaleza</span>
+        </div>
+        <div class="card reveal d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.1a4 4 0 0 1 0 7.8M21 21v-2a4 4 0 0 0-3-3.9"/></svg></div>
+          <h3>Más protección y estabilidad</h3>
+          <p>Refuerza garantías para mujeres, personas con discapacidad, trabajadores del campo y plataformas digitales, y la estabilidad laboral reforzada.</p>
+          <span class="pill">Inclusión</span>
+        </div>
+        <div class="card reveal d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 17h14"/><path d="M8 12h8"/></svg></div>
+          <h3>Jornada de 42 horas</h3>
+          <p>Continúa la reducción gradual de la jornada (Ley 2101 de 2021): llega a 42 horas semanales en julio de 2026, distribuibles en 5 o 6 días.</p>
+          <span class="pill">Ley 2101 de 2021</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec tint" id="principios">
+  <section class="sec tint" id="contrato">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-tag">02 · Fundamentos</span>
-        <h2>Principios fundamentales</h2>
-        <p>Pilares que inspiran e interpretan toda norma laboral. Cuando hay duda, siempre se protege al trabajador.</p>
-      </div>
-      <div class="split">
-        <div class="plist">
-          <div class="pitem reveal"><div class="n">I</div><div><h4>Principio protector</h4><p>Ante la duda, se aplica la norma más favorable al trabajador (<em>in dubio pro operario</em>).</p></div></div>
-          <div class="pitem reveal d1"><div class="n">II</div><div><h4>Irrenunciabilidad</h4><p>Los derechos mínimos establecidos por la ley no se pueden renunciar ni negociar a la baja.</p></div></div>
-          <div class="pitem reveal d2"><div class="n">III</div><div><h4>Primacía de la realidad</h4><p>Lo que ocurre en los hechos prevalece sobre lo que digan los documentos o contratos.</p></div></div>
-          <div class="pitem reveal d3"><div class="n">IV</div><div><h4>Estabilidad e igualdad</h4><p>Continuidad en el empleo y trato igual sin discriminación, a trabajo igual, salario igual.</p></div></div>
-        </div>
-        <div class="quote-card reveal d1">
-          <div class="mark">“</div>
-          <blockquote>El trabajo es un derecho y una obligación social que goza de la especial protección del Estado.</blockquote>
-          <cite>— Fundamento del Derecho Laboral moderno</cite>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="contrato">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-tag">03 · El vínculo</span>
+        <span class="sec-tag">02 · El vínculo</span>
         <h2>El contrato de trabajo</h2>
-        <p>Acuerdo por el cual una persona se obliga a prestar un servicio personal bajo subordinación, a cambio de un salario.</p>
+        <p>Acuerdo por el cual una persona presta un servicio personal bajo subordinación, a cambio de un salario. Sus tres elementos son esenciales.</p>
       </div>
-      <div class="cards" style="margin-bottom:60px">
-        <div class="card reveal"><span class="num-tag">Tipo 01</span><h3>Término fijo</h3><p>Tiene una fecha de inicio y fin determinadas. No puede superar los tres años, pero es renovable.</p></div>
-        <div class="card reveal d1"><span class="num-tag">Tipo 02</span><h3>Término indefinido</h3><p>No tiene fecha de finalización. Ofrece mayor estabilidad al trabajador.</p></div>
-        <div class="card reveal d2"><span class="num-tag">Tipo 03</span><h3>Obra o labor</h3><p>Dura lo que dure la obra o actividad contratada. Termina al concluir la tarea.</p></div>
+      <div class="cards" style="margin-bottom:56px">
+        <div class="card reveal"><span class="num-tag">Tipo 01</span><h3>Término indefinido</h3><p>Es la regla general tras la reforma. No tiene fecha de finalización y ofrece la mayor estabilidad.</p></div>
+        <div class="card reveal d1"><span class="num-tag">Tipo 02</span><h3>Término fijo</h3><p>Con fecha determinada; debe constar por escrito. Sus renovaciones y topes están regulados por la ley.</p></div>
+        <div class="card reveal d2"><span class="num-tag">Tipo 03</span><h3>Obra o labor</h3><p>Dura lo que dure la obra o actividad contratada; debe identificarse con claridad la labor.</p></div>
       </div>
-      <h3 class="serif reveal" style="text-align:center;font-size:1.5rem;margin-bottom:34px">Los 3 elementos esenciales</h3>
+      <h3 class="serif reveal" style="text-align:center;font-size:1.5rem;margin-bottom:32px">Los 3 elementos esenciales</h3>
       <div class="timeline">
         <div class="tl-step reveal"><div class="tl-dot">1</div><h4>Actividad personal</h4><p>El servicio lo presta directamente el trabajador; no puede delegarlo en otra persona.</p></div>
         <div class="tl-step reveal d1"><div class="tl-dot">2</div><h4>Subordinación</h4><p>El empleador puede dar órdenes e instrucciones sobre modo, tiempo y cantidad de trabajo.</p></div>
@@ -333,104 +354,234 @@
     </div>
   </section>
 
-  <section class="sec tint" id="derechos">
+  <section class="sec" id="derechos">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-tag">04 · Trabajador</span>
+        <span class="sec-tag">03 · Trabajador</span>
         <h2>Derechos del trabajador</h2>
-        <p>Garantías mínimas que todo trabajador posee por el solo hecho de serlo.</p>
+        <p>Garantías mínimas e irrenunciables que todo trabajador posee por el solo hecho de serlo.</p>
       </div>
       <div class="checklist">
-        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Salario justo</b><span>Nunca inferior al mínimo legal vigente.</span></div></div>
-        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Jornada limitada</b><span>Con descansos y pago de horas extra.</span></div></div>
-        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Vacaciones remuneradas</b><span>Descanso anual pagado tras un año laborado.</span></div></div>
-        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Prestaciones sociales</b><span>Prima, cesantías e intereses sobre cesantías.</span></div></div>
-        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Seguridad social</b><span>Salud, pensión y riesgos laborales.</span></div></div>
-        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Asociación sindical</b><span>Libertad de organizarse y negociar colectivamente.</span></div></div>
-        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>No discriminación</b><span>Trato igualitario y respeto a la dignidad.</span></div></div>
-        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Ambiente seguro</b><span>Condiciones de salud y seguridad en el trabajo.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Salario justo</b><span>Nunca inferior al mínimo legal vigente ($1.750.905 en 2026).</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Jornada limitada</b><span>Con descansos y pago de horas extra y recargos.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Vacaciones remuneradas</b><span>15 días hábiles por cada año de servicio.</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Prestaciones sociales</b><span>Prima, cesantías e intereses del 12 % sobre cesantías.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Seguridad social</b><span>Salud (EPS), pensión (AFP) y riesgos laborales (ARL).</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Auxilio de transporte</b><span>$249.095 en 2026 si gana hasta 2 salarios mínimos.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Asociación sindical</b><span>Libertad de organizarse y negociar colectivamente.</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>No discriminación</b><span>Trato igualitario y respeto a la dignidad.</span></div></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="empleador">
+  <section class="sec tint" id="liquidador">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-tag">05 · Empleador</span>
-        <h2>Obligaciones del empleador</h2>
-        <p>La relación laboral también impone deberes a quien contrata.</p>
+        <span class="sec-tag">04 · Herramienta</span>
+        <h2>Liquidador interactivo</h2>
+        <p>Estima tus prestaciones sociales y, si aplica, la indemnización por despido sin justa causa. Ingresa tus datos y calcula.</p>
       </div>
-      <div class="cards">
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-          <h3>Pagar cumplidamente</h3>
-          <p>Remunerar el salario y las prestaciones en las fechas y montos acordados.</p>
+      <div class="liq">
+        <div class="liq-form reveal">
+          <h3>Tus datos</h3>
+          <p class="fh">Cálculo con año comercial de 360 días.</p>
+          <div class="field">
+            <label for="salario">Salario mensual (COP)</label>
+            <input type="number" id="salario" inputmode="numeric" placeholder="Ej: 1750905" value="1750905" />
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ini">Fecha de ingreso</label><input type="date" id="ini" value="2024-01-01" /></div>
+            <div class="field"><label for="fin">Fecha de retiro</label><input type="date" id="fin" value="2026-06-30" /></div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="tipo">Tipo de contrato</label>
+              <select id="tipo"><option value="indefinido">Término indefinido</option><option value="fijo">Término fijo</option><option value="obra">Obra o labor</option></select>
+            </div>
+            <div class="field"><label for="smmlv">SMMLV de referencia</label><input type="number" id="smmlv" value="1750905" /></div>
+          </div>
+          <label class="chk"><input type="checkbox" id="despido" /> Me despidieron sin justa causa (calcular indemnización)</label>
+          <button class="btn btn-primary" id="calc" style="width:100%;justify-content:center;margin-top:16px">Calcular liquidación
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </button>
+          <p class="note">El auxilio de transporte se incluye en la base de cesantías y prima cuando el salario es de hasta 2 SMMLV. Para contratos a término fijo u obra, la indemnización equivale a los salarios que falten hasta terminar el plazo o la obra (mín. 15 días en obra), por lo que no se calcula automáticamente aquí.</p>
         </div>
-        <div class="card reveal d1">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Proteger y afiliar</h3>
-          <p>Garantizar seguridad y salud, y afiliar al trabajador al sistema de seguridad social.</p>
-        </div>
-        <div class="card reveal d2">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
-          <h3>Respetar y dar trato digno</h3>
-          <p>Guardar respeto a la dignidad del trabajador y entregar certificaciones laborales.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec tint" id="seguridad">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-tag">06 · Condiciones</span>
-        <h2>Jornada, salario y seguridad social</h2>
-        <p>Los componentes que definen el día a día de la relación laboral.</p>
-      </div>
-      <div class="cards">
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <h3>Jornada laboral</h3>
-          <p>La ley fija un máximo de horas diarias y semanales. El trabajo adicional se paga como horas extra o recargo.</p>
-        </div>
-        <div class="card reveal d1">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2-5 1-5 3a2.5 2 0 0 0 5 0"/></svg></div>
-          <h3>Salario y prestaciones</h3>
-          <p>Incluye el pago ordinario más prima de servicios, cesantías, intereses y vacaciones.</p>
-        </div>
-        <div class="card reveal d2">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Seguridad social</h3>
-          <p>Cubre salud (EPS), pensión (AFP) y riesgos laborales (ARL): la red de protección del trabajador.</p>
+        <div class="liq-res reveal d1" id="resultado">
+          <h3>Resultado estimado</h3>
+          <div id="res-body"><p class="res-empty">Ingresa tus datos y presiona «Calcular liquidación» para ver el detalle.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="faq">
+  <section class="sec" id="casos">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-tag">07 · Dudas comunes</span>
-        <h2>Preguntas frecuentes</h2>
-        <p>Respuestas breves a las inquietudes más habituales.</p>
+        <span class="sec-tag">05 · Guía práctica</span>
+        <h2>¿Qué hacer en caso de…?</h2>
+        <p>Pasos orientativos frente a las situaciones laborales más frecuentes. Toca cada caso para ver la ruta.</p>
       </div>
       <div class="faq">
         <div class="q reveal">
-          <button>¿El contrato de trabajo debe ser siempre por escrito? <span class="plus">+</span></button>
-          <div class="a"><p>No siempre. El contrato verbal también es válido, pero el escrito brinda mayor seguridad y claridad para ambas partes. Algunos tipos, como el de término fijo, sí deben constar por escrito.</p></div>
+          <button><span class="qt"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Me despidieron sin justa causa</span><span class="plus">+</span></button>
+          <div class="a"><div class="ai">
+            <ol>
+              <li>Pide por escrito la carta de terminación y conserva soportes (contrato, desprendibles de pago).</li>
+              <li>Verifica el pago de tu liquidación e <b>indemnización</b> del artículo 64 del CST (usa el liquidador).</li>
+              <li>Puedes intentar una <b>conciliación</b> ante el Ministerio del Trabajo (gratuita) o un centro de conciliación.</li>
+              <li>Si no hay acuerdo, puedes demandar ante el juez laboral; la acción por salarios y prestaciones prescribe en 3 años.</li>
+            </ol>
+            <span class="ref">CST art. 64 · Ley 2452 de 2025</span>
+          </div></div>
         </div>
         <div class="q reveal">
-          <button>¿Puedo renunciar a mis prestaciones sociales? <span class="plus">+</span></button>
-          <div class="a"><p>No. Los derechos mínimos reconocidos por la ley son irrenunciables. Cualquier acuerdo que los desconozca carece de validez.</p></div>
+          <button><span class="qt"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>No me pagan salario o prestaciones</span><span class="plus">+</span></button>
+          <div class="a"><div class="ai">
+            <ol>
+              <li>Reclama por escrito al empleador dejando constancia de la fecha.</li>
+              <li>Puedes presentar una querella ante la <b>Inspección del Trabajo</b> del Ministerio del Trabajo.</li>
+              <li>La mora en el pago al terminar el contrato puede generar <b>indemnización moratoria</b> (CST art. 65).</li>
+              <li>Como alternativa, acude a la conciliación o demanda ante el juez laboral.</li>
+            </ol>
+            <span class="ref">CST arts. 65 y 249</span>
+          </div></div>
         </div>
         <div class="q reveal">
-          <button>¿Qué es el periodo de prueba? <span class="plus">+</span></button>
-          <div class="a"><p>Es una etapa inicial del contrato en la que ambas partes evalúan la conveniencia de continuar. Debe pactarse por escrito y tiene una duración máxima limitada por la ley.</p></div>
+          <button><span class="qt"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4M5 9h14l1 12H4z"/></svg></span>Quiero conciliar con el empleador</span><span class="plus">+</span></button>
+          <div class="a"><div class="ai">
+            <p>La conciliación es un mecanismo <b>voluntario</b> para resolver el conflicto sin demandar. Puedes hacerla:</p>
+            <ul>
+              <li>Ante el <b>Ministerio del Trabajo</b> (inspección) de forma gratuita.</li>
+              <li>Ante centros de conciliación autorizados o la Defensoría del Pueblo.</li>
+            </ul>
+            <p>El acuerdo conciliatorio hace tránsito a cosa juzgada y presta mérito ejecutivo. En materia laboral la conciliación <b>no es, en general, requisito para demandar</b> (Corte Constitucional, Sentencia C-893 de 2001).</p>
+            <span class="ref">C-893 de 2001 · CPT y SS</span>
+          </div></div>
         </div>
         <div class="q reveal">
-          <button>¿Cómo puede terminar un contrato de trabajo? <span class="plus">+</span></button>
-          <div class="a"><p>Por mutuo acuerdo, por vencimiento del plazo, por terminación de la obra, por decisión unilateral con justa causa, o sin justa causa (lo que puede generar el pago de una indemnización).</p></div>
+          <button><span class="qt"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 8v4M12 16h.01"/></svg></span>Sufrí acoso laboral</span><span class="plus">+</span></button>
+          <div class="a"><div class="ai">
+            <ol>
+              <li>Reúne pruebas (mensajes, correos, testigos) de las conductas.</li>
+              <li>Acude al <b>Comité de Convivencia Laboral</b> de tu empresa.</li>
+              <li>Puedes denunciar ante el Ministerio del Trabajo y, según el caso, ante la justicia.</li>
+            </ol>
+            <span class="ref">Ley 1010 de 2006</span>
+          </div></div>
         </div>
+        <div class="q reveal">
+          <button><span class="qt"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>No me afiliaron a seguridad social</span><span class="plus">+</span></button>
+          <div class="a"><div class="ai">
+            <ol>
+              <li>El empleador está obligado a afiliarte a salud, pensión y riesgos laborales.</li>
+              <li>Repórtalo ante el Ministerio del Trabajo y la <b>UGPP</b>, que fiscaliza los aportes.</li>
+              <li>Ante problemas con tu EPS, acude a la <b>Supersalud</b>.</li>
+            </ol>
+            <span class="ref">Ley 100 de 1993</span>
+          </div></div>
+        </div>
+        <div class="q reveal">
+          <button><span class="qt"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></span>Tuve un accidente de trabajo</span><span class="plus">+</span></button>
+          <div class="a"><div class="ai">
+            <ol>
+              <li>Reporta de inmediato al empleador y a la <b>ARL</b> (plazo máximo de 2 días hábiles).</li>
+              <li>Recibe atención médica; la ARL cubre la atención y las prestaciones económicas.</li>
+              <li>Conserva la documentación para eventuales reclamaciones por incapacidad o secuelas.</li>
+            </ol>
+            <span class="ref">Decreto 1072 de 2015</span>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="terminacion">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">06 · Terminación y conciliación</span>
+        <h2>Despido, indemnización y conciliación</h2>
+        <p>Qué dice la ley cuando el contrato termina y cómo se resuelven las diferencias.</p>
+      </div>
+      <div class="split" style="margin-bottom:46px">
+        <div class="reveal">
+          <h3 class="serif" style="font-size:1.5rem;margin-bottom:12px">Indemnización por despido sin justa causa</h3>
+          <p style="color:var(--ink-soft);margin-bottom:16px">Regulada por el artículo 64 del CST (la reforma no la modificó). Depende del tipo de contrato y del salario:</p>
+          <div class="plist">
+            <div class="pitem"><div class="n">A</div><div><h4>Indefinido · salario &lt; 10 SMMLV</h4><p>30 días de salario por el primer año y 20 días por cada año adicional o fracción.</p></div></div>
+            <div class="pitem"><div class="n">B</div><div><h4>Indefinido · salario ≥ 10 SMMLV</h4><p>20 días de salario por el primer año y 15 días por cada año adicional o fracción.</p></div></div>
+            <div class="pitem"><div class="n">C</div><div><h4>Término fijo u obra</h4><p>Los salarios que falten hasta la fecha de vencimiento o el fin de la obra (mínimo 15 días en obra).</p></div></div>
+          </div>
+        </div>
+        <div class="quote-card reveal d1">
+          <div class="mark">“</div>
+          <blockquote>La tabla de indemnización es un cálculo anticipado del daño, no un tope: el trabajador puede reclamar más si prueba un perjuicio mayor.</blockquote>
+          <cite>— Línea jurisprudencial, Corte Suprema de Justicia, Sala Laboral</cite>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11l2 2 4-4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Estabilidad reforzada</h3>
+          <p>El despido de personas con fuero (maternidad, salud, sindical) requiere autorización; de lo contrario puede ser ineficaz y proceder el reintegro.</p>
+        </div>
+        <div class="card reveal d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Conciliación voluntaria</h3>
+          <p>Antes o en lugar de demandar, las partes pueden conciliar ante el Ministerio del Trabajo. El acuerdo hace tránsito a cosa juzgada.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V8l6-4 6 4v13M10 21v-6h4v6"/></svg></div>
+          <h3>Nuevo proceso laboral</h3>
+          <p>La Ley 2452 de 2025 expide el nuevo Código Procesal del Trabajo: doble instancia, audiencias virtuales y más garantías. Rige desde abril de 2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="enlaces">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">07 · Entidades</span>
+        <h2>Enlaces oficiales</h2>
+        <p>Portales del Estado colombiano donde puedes consultar, reportar y tramitar asuntos laborales. Se abren en una pestaña nueva.</p>
+      </div>
+      <div class="links">
+        <a class="lk reveal" href="https://www.mintrabajo.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></span>
+          <span><h4>Ministerio del Trabajo <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Inspección, querellas, conciliación y normatividad laboral.</p><span class="dom">mintrabajo.gov.co</span></span>
+        </a>
+        <a class="lk reveal d1" href="https://www.supersalud.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v6M9 11h6"/></svg></span>
+          <span><h4>Supersalud <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Superintendencia Nacional de Salud: quejas frente a EPS e IPS.</p><span class="dom">supersalud.gov.co</span></span>
+        </a>
+        <a class="lk reveal d2" href="https://www.ssf.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span><h4>Super. Subsidio Familiar <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Vigila las cajas de compensación familiar.</p><span class="dom">ssf.gov.co</span></span>
+        </a>
+        <a class="lk reveal" href="https://www.colpensiones.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span><h4>Colpensiones <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Administradora del régimen de pensiones público.</p><span class="dom">colpensiones.gov.co</span></span>
+        </a>
+        <a class="lk reveal d1" href="https://www.ugpp.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span><h4>UGPP <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Fiscaliza los aportes a la seguridad social.</p><span class="dom">ugpp.gov.co</span></span>
+        </a>
+        <a class="lk reveal d2" href="https://www.sena.edu.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg></span>
+          <span><h4>SENA <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Formación y contrato de aprendizaje.</p><span class="dom">sena.edu.co</span></span>
+        </a>
+        <a class="lk reveal" href="https://www.ramajudicial.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 17h14"/><path d="M4 7l8-4 8 4"/></svg></span>
+          <span><h4>Rama Judicial <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Jueces laborales y consulta de procesos.</p><span class="dom">ramajudicial.gov.co</span></span>
+        </a>
+        <a class="lk reveal d1" href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=260676" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+          <span><h4>Ley 2466 de 2025 <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Texto oficial en el Gestor Normativo (Función Pública).</p><span class="dom">funcionpublica.gov.co</span></span>
+        </a>
+        <a class="lk reveal d2" href="https://www.corteconstitucional.gov.co" target="_blank" rel="noopener noreferrer">
+          <span class="lkic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
+          <span><h4>Corte Constitucional <svg class="ext" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h4><p>Jurisprudencia y control de constitucionalidad.</p><span class="dom">corteconstitucional.gov.co</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -441,7 +592,7 @@
         <span class="ring" style="width:320px;height:320px;top:-120px;right:-80px"></span>
         <span class="ring" style="width:220px;height:220px;bottom:-110px;left:-40px"></span>
         <h2>Conocer tus derechos es el primer paso</h2>
-        <p>Este sitio reúne, de forma sencilla, los conceptos clave del Derecho Laboral para estudiantes, trabajadores y empleadores.</p>
+        <p>Este sitio reúne, de forma sencilla y actualizada, los conceptos clave del Derecho Laboral colombiano para estudiantes, trabajadores y empleadores.</p>
         <a href="#inicio" class="btn btn-white">Volver al inicio
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004D46" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
         </a>
@@ -455,41 +606,40 @@
         <div>
           <a href="#inicio" class="brand" style="margin-bottom:14px">
             <span class="logo"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 22v56"/><path d="M28 78h44"/><path d="M24 34h52"/><path d="M24 34l-11 22h22z"/><path d="M76 34l-11 22h22z"/></svg></span>
-            <span><b>Derecho Laboral</b><small>por Jhoger Guerrero</small></span>
+            <span><span class="site">Derecho Laboral</span><small>por Jhoger Guerrero</small></span>
           </a>
-          <p style="font-size:.92rem;max-width:34ch;color:#9fb0ac">Proyecto educativo creado con fines académicos para comprender las bases del Derecho Laboral.</p>
+          <p style="font-size:.92rem;max-width:36ch;color:#9fb0ac">Proyecto educativo con fines académicos sobre el Derecho Laboral en Colombia, conforme a la normatividad vigente a 2026.</p>
         </div>
         <div>
           <h5>Secciones</h5>
-          <a href="#concepto">Concepto</a>
-          <a href="#principios">Principios</a>
+          <a href="#reforma">Reforma 2025</a>
           <a href="#contrato">Contrato</a>
           <a href="#derechos">Derechos</a>
+          <a href="#liquidador">Liquidador</a>
         </div>
         <div>
           <h5>Más</h5>
-          <a href="#empleador">Empleador</a>
-          <a href="#seguridad">Seguridad social</a>
-          <a href="#faq">Preguntas frecuentes</a>
+          <a href="#casos">¿Qué hacer?</a>
+          <a href="#terminacion">Terminación</a>
+          <a href="#enlaces">Enlaces oficiales</a>
           <a href="#contacto">Contacto</a>
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 · Sitio creado por <b>Jhoger Guerrero</b>. Todos los derechos reservados.</span>
-        <span>Diseñado y desarrollado por <b>Jhoger Guerrero</b></span>
+        <span>© 2026 · Sitio creado por <span class="foot-name">Jhoger Guerrero</span>.</span>
+        <span>Diseñado y desarrollado por <span class="foot-name">Jhoger Guerrero</span></span>
       </div>
-      <p style="font-size:.76rem;color:#6b7c78;margin-top:14px">*Las cifras son de referencia general con fines educativos y pueden variar según la legislación vigente de cada país.</p>
+      <p style="font-size:.76rem;color:#6b7c78;margin-top:14px">Normas citadas: Ley 2466 de 2025, Ley 2452 de 2025, Ley 2101 de 2021, Código Sustantivo del Trabajo, Ley 100 de 1993, Ley 1010 de 2006 y jurisprudencia (C-893 de 2001). Contenido referencial; verifica siempre el texto oficial.</p>
     </div>
-                                      </footer>
+  </footer>
 
   <script>
-    /* Autor: Jhoger Guerrero */
+    /* Sitio creado por Jhoger Guerrero */
     const progress = document.getElementById('progress');
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       const h = document.documentElement;
-      const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-      progress.style.width = pct + '%';
+      progress.style.width = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100 + '%';
       nav.classList.toggle('scrolled', h.scrollTop > 10);
     }, { passive: true });
 
@@ -498,21 +648,17 @@
     burger.addEventListener('click', () => links.classList.toggle('show'));
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('show')));
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .14 });
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    const countIO = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
+    const countIO = new IntersectionObserver((es) => {
+      es.forEach(e => {
         if (!e.isIntersecting) return;
         const el = e.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
         let cur = 0; const step = Math.max(1, Math.ceil(target / 40));
-        const t = setInterval(() => {
-          cur += step;
-          if (cur >= target) { cur = target; clearInterval(t); }
-          el.textContent = cur + suffix;
-        }, 28);
+        const t = setInterval(() => { cur += step; if (cur >= target) { cur = target; clearInterval(t); } el.textContent = cur + suffix; }, 28);
         countIO.unobserve(el);
       });
     }, { threshold: .6 });
@@ -528,8 +674,8 @@
 
     const navMap = {};
     document.querySelectorAll('nav.links a[href^="#"]').forEach(a => navMap[a.getAttribute('href').slice(1)] = a);
-    const secIO = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
+    const secIO = new IntersectionObserver((es) => {
+      es.forEach(e => {
         const a = navMap[e.target.id];
         if (a && e.isIntersecting) {
           document.querySelectorAll('nav.links a').forEach(x => x.classList.remove('active'));
@@ -538,6 +684,56 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     document.querySelectorAll('section[id]').forEach(s => secIO.observe(s));
+
+    const fmt = n => n.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+    function dias360(ini, fin) {
+      const d1 = new Date(ini), d2 = new Date(fin);
+      if (isNaN(d1) || isNaN(d2) || d2 <= d1) return 0;
+      let y1 = d1.getFullYear(), m1 = d1.getMonth() + 1, day1 = d1.getDate();
+      let y2 = d2.getFullYear(), m2 = d2.getMonth() + 1, day2 = d2.getDate();
+      if (day1 > 30) day1 = 30; if (day2 > 30) day2 = 30;
+      return (y2 - y1) * 360 + (m2 - m1) * 30 + (day2 - day1);
+    }
+    function calcular() {
+      const salario = parseFloat(document.getElementById('salario').value) || 0;
+      const smmlv = parseFloat(document.getElementById('smmlv').value) || 1750905;
+      const tipo = document.getElementById('tipo').value;
+      const despido = document.getElementById('despido').checked;
+      const dias = dias360(document.getElementById('ini').value, document.getElementById('fin').value);
+      const body = document.getElementById('res-body');
+      if (salario <= 0 || dias <= 0) {
+        body.innerHTML = '<p class="res-empty">Revisa los datos: el salario debe ser mayor a 0 y la fecha de retiro posterior a la de ingreso.</p>';
+        return;
+      }
+      const auxilio = salario <= 2 * smmlv ? 249095 : 0;
+      const base = salario + auxilio;
+      const cesantias = base * dias / 360;
+      const intereses = cesantias * dias * 0.12 / 360;
+      const prima = base * dias / 360;
+      const vacaciones = salario * dias / 720;
+      let indemn = 0, indLabel = '';
+      if (despido && tipo === 'indefinido') {
+        const diaSal = salario / 30;
+        let d;
+        if (salario < 10 * smmlv) d = dias <= 360 ? 30 : 30 + 20 * ((dias - 360) / 360);
+        else d = dias <= 360 ? 20 : 20 + 15 * ((dias - 360) / 360);
+        indemn = diaSal * d;
+        indLabel = 'Indemnización art. 64 CST (' + d.toFixed(1) + ' días)';
+      }
+      const total = cesantias + intereses + prima + vacaciones + indemn;
+      const anios = (dias / 360).toFixed(2);
+      let html = '<div class="res-line"><span>Tiempo laborado</span><b>' + dias + ' días (' + anios + ' años)</b></div>';
+      html += '<div class="res-line"><span>Cesantías</span><b>' + fmt(cesantias) + '</b></div>';
+      html += '<div class="res-line"><span>Intereses a las cesantías (12%)</span><b>' + fmt(intereses) + '</b></div>';
+      html += '<div class="res-line"><span>Prima de servicios (proporcional)</span><b>' + fmt(prima) + '</b></div>';
+      html += '<div class="res-line"><span>Vacaciones (proporcionales)</span><b>' + fmt(vacaciones) + '</b></div>';
+      if (indemn > 0) html += '<div class="res-line"><span>' + indLabel + '</span><b>' + fmt(indemn) + '</b></div>';
+      else if (despido && tipo !== 'indefinido') html += '<div class="res-line"><span>Indemnización</span><b>Ver nota (contrato ' + tipo + ')</b></div>';
+      html += '<div class="res-total"><span>Total estimado</span><b>' + fmt(total) + '</b></div>';
+      if (auxilio > 0) html += '<p class="note">Se incluyó el auxilio de transporte ($249.095) en la base de cesantías y prima por ganar hasta 2 SMMLV.</p>';
+      body.innerHTML = html;
+    }
+    document.getElementById('calc').addEventListener('click', calcular);
   </script>
 </body>
 </html>
