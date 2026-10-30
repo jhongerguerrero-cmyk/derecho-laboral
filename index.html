@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Proyecto: Derecho Laboral — Sitio web educativo
+  Autor:    Jhoger Guerrero
+  Creado por: Jhoger Guerrero
+  Año:      2026
+  Descripción: Página web creativa sobre Derecho Laboral,
+               dividida por secciones. Diseño profesional.
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Derecho Laboral · Jhoger Guerrero</title>
+  <meta name="description" content="Sitio web educativo sobre Derecho Laboral: principios, contrato de trabajo, derechos del trabajador, obligaciones del empleador, jornada, salario y seguridad social. Creado por Jhoger Guerrero." />
+  <meta name="author" content="Jhoger Guerrero" />
+  <meta name="theme-color" content="#006B62" />
+
+  <meta property="og:title" content="Derecho Laboral · Jhoger Guerrero" />
+  <meta property="og:description" content="Guía educativa e interactiva sobre Derecho Laboral. Autor: Jhoger Guerrero." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #006B62;
+      --green-700: #004D46;
+      --green-500: #0E8C7E;
+      --green-300: #5FB0A6;
+      --mint: #E8F3F1;
+      --mint-2: #F3F9F8;
+      --gold: #C6A15B;
+      --ink: #17221F;
+      --ink-soft: #46514E;
+      --line: #E2EAE8;
+      --white: #FFFFFF;
+      --bg: #FBFDFC;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow-sm: 0 1px 2px rgba(0,77,70,.06), 0 4px 16px rgba(0,77,70,.06);
+      --shadow-md: 0 10px 40px rgba(0,77,70,.12);
+      --maxw: 1120px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.12; letter-spacing: -.01em; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    section { position: relative; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--green-500), var(--green), var(--gold)); z-index: 200; transition: width .1s linear; }
+    header.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(251,253,252,.72); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s, background .3s; }
+    header.nav.scrolled { border-bottom-color: var(--line); box-shadow: 0 6px 24px rgba(0,77,70,.05); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: -.01em; }
+    .brand .logo { width: 38px; height: 38px; border-radius: 11px; background: var(--green); display: grid; place-items: center; box-shadow: var(--shadow-sm); }
+    .brand .logo svg { width: 22px; height: 22px; }
+    .brand small { display: block; font-weight: 500; font-size: .72rem; color: var(--ink-soft); letter-spacing: .02em; }
+    .brand b { font-size: 1.02rem; }
+    nav.links { display: flex; align-items: center; gap: 4px; }
+    nav.links a { font-size: .9rem; font-weight: 500; color: var(--ink-soft); padding: 9px 14px; border-radius: 10px; transition: color .2s, background .2s; position: relative; }
+    nav.links a:hover { color: var(--green); background: var(--mint); }
+    nav.links a.active { color: var(--green); }
+    .nav-cta { background: var(--green); color: #fff !important; padding: 10px 18px !important; border-radius: 11px !important; font-weight: 600 !important; box-shadow: var(--shadow-sm); transition: transform .2s var(--ease), box-shadow .2s; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .burger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; margin: 5px 0; transition: .3s; }
+    .hero { padding: 150px 0 90px; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(60% 55% at 85% 12%, rgba(14,140,126,.12), transparent 60%), radial-gradient(45% 40% at 5% 90%, rgba(198,161,91,.10), transparent 60%); }
+    .blob { position: absolute; z-index: -1; filter: blur(2px); opacity: .5; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--mint); color: var(--green-700); font-weight: 600; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(0,107,98,.15); }
+    .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.3rem); margin: 22px 0 18px; }
+    .hero h1 .accent { color: var(--green); font-style: italic; }
+    .hero p.lead { font-size: 1.16rem; color: var(--ink-soft); max-width: 36ch; }
+    .hero-actions { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: .98rem; padding: 14px 26px; border-radius: 13px; cursor: pointer; border: 1px solid transparent; transition: transform .2s var(--ease), box-shadow .2s, background .2s, color .2s; }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+    .btn-ghost:hover { border-color: var(--green-300); color: var(--green); transform: translateY(-2px); }
+    .hero-illus { position: relative; }
+    .hero-card { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-md); padding: 10px; position: relative; overflow: hidden; }
+    .hero-card .pane { background: linear-gradient(160deg, var(--green-700), var(--green)); border-radius: 16px; padding: 30px; color: #fff; }
+    .float-badge { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-md); padding: 12px 15px; display: flex; align-items: center; gap: 11px; font-size: .82rem; font-weight: 600; }
+    .float-badge .ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; }
+    .fb-1 { top: 18px; right: -16px; animation: floaty 5s ease-in-out infinite; }
+    .fb-2 { bottom: 26px; left: -18px; animation: floaty 6s ease-in-out infinite .6s; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 72px; }
+    .stat { text-align: center; padding: 22px 14px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+    .stat .num { font-family: 'Fraunces',serif; font-size: 2.3rem; color: var(--green); font-weight: 600; }
+    .stat .lbl { font-size: .84rem; color: var(--ink-soft); margin-top: 4px; }
+    .sec { padding: 92px 0; }
+    .sec.tint { background: linear-gradient(180deg, var(--mint-2), #fff); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .sec-head { max-width: 680px; margin: 0 auto 54px; text-align: center; }
+    .sec-tag { color: var(--green); font-weight: 700; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
+    .sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); margin: 12px 0 14px; }
+    .sec-head p { color: var(--ink-soft); font-size: 1.06rem; }
+    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); transition: transform .3s var(--ease), box-shadow .3s, border-color .3s; }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--green-300); }
+    .card .icon { width: 54px; height: 54px; border-radius: 14px; background: var(--mint); display: grid; place-items: center; margin-bottom: 18px; }
+    .card .icon svg { width: 28px; height: 28px; stroke: var(--green); }
+    .card h3 { font-size: 1.22rem; margin-bottom: 9px; }
+    .card p { color: var(--ink-soft); font-size: .96rem; }
+    .card .num-tag { font-family:'Fraunces',serif; font-size: .9rem; color: var(--gold); font-weight: 600; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .plist { display: flex; flex-direction: column; gap: 16px; }
+    .pitem { display: flex; gap: 16px; padding: 18px; border-radius: var(--radius-sm); background: #fff; border: 1px solid var(--line); transition: background .25s, transform .25s; }
+    .pitem:hover { background: var(--mint-2); transform: translateX(4px); }
+    .pitem .n { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 11px; background: var(--green); color: #fff; display: grid; place-items: center; font-family:'Fraunces',serif; font-weight: 600; }
+    .pitem h4 { font-size: 1.04rem; margin-bottom: 3px; }
+    .pitem p { font-size: .92rem; color: var(--ink-soft); }
+    .quote-card { background: linear-gradient(160deg, var(--green-700), var(--green)); color: #fff; border-radius: 24px; padding: 42px; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+    .quote-card .mark { font-family:'Fraunces',serif; font-size: 6rem; line-height: .6; opacity: .25; }
+    .quote-card blockquote { font-family:'Fraunces',serif; font-size: 1.5rem; margin: 10px 0 20px; }
+    .quote-card cite { font-style: normal; font-size: .9rem; opacity: .85; }
+    .timeline { position: relative; max-width: 820px; margin: 0 auto; padding-left: 8px; }
+    .timeline::before { content:""; position:absolute; left: 25px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--green-300), var(--line)); }
+    .tl-step { position: relative; padding: 0 0 34px 72px; }
+    .tl-step:last-child { padding-bottom: 0; }
+    .tl-dot { position: absolute; left: 10px; top: 2px; width: 32px; height: 32px; border-radius: 50%; background: #fff; border: 2px solid var(--green); color: var(--green); display: grid; place-items: center; font-weight: 700; font-size: .85rem; box-shadow: 0 0 0 5px var(--mint); }
+    .tl-step h4 { font-size: 1.12rem; }
+    .tl-step p { color: var(--ink-soft); font-size: .95rem; }
+    .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 26px; }
+    .check { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+    .check .tick { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--mint); display: grid; place-items: center; }
+    .check .tick svg { width: 16px; height: 16px; stroke: var(--green); }
+    .check b { display:block; font-size: .98rem; }
+    .check span { font-size: .88rem; color: var(--ink-soft); }
+    .faq { max-width: 780px; margin: 0 auto; }
+    .q { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 12px; background: #fff; overflow: hidden; transition: box-shadow .25s, border-color .25s; }
+    .q.open { box-shadow: var(--shadow-sm); border-color: var(--green-300); }
+    .q button { width: 100%; text-align: left; background: none; border: 0; padding: 20px 22px; font: inherit; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--ink); }
+    .q .plus { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--green); color: var(--green); display: grid; place-items: center; transition: transform .3s; font-size: 1.1rem; }
+    .q.open .plus { transform: rotate(45deg); background: var(--green); color: #fff; }
+    .q .a { max-height: 0; overflow: hidden; transition: max-height .35s var(--ease); }
+    .q .a p { padding: 0 22px 20px; color: var(--ink-soft); font-size: .96rem; }
+    .cta-band { background: linear-gradient(135deg, var(--green-700), var(--green)); color: #fff; border-radius: 28px; padding: 60px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+    .cta-band h2 { font-size: clamp(1.8rem,3.4vw,2.6rem); margin-bottom: 14px; }
+    .cta-band p { opacity: .9; max-width: 48ch; margin: 0 auto 26px; }
+    .cta-band .btn-white { background: #fff; color: var(--green-700); }
+    .cta-band .ring { position: absolute; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; }
+    footer { background: var(--ink); color: #cdd6d3; padding: 58px 0 30px; }
+    .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+    footer .brand b { color: #fff; }
+    footer .brand small { color: #9fb0ac; }
+    footer h5 { color: #fff; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+    footer a { color: #cdd6d3; font-size: .93rem; display: block; padding: 5px 0; transition: color .2s; }
+    footer a:hover { color: var(--green-300); }
+    .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 42px; padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .85rem; color: #9fb0ac; }
+    .foot-bottom b { color: #fff; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
+    @media (max-width: 920px) {
+      .hero-grid, .split { grid-template-columns: 1fr; gap: 40px; }
+      .hero-illus { order: -1; max-width: 460px; margin: 0 auto; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      nav.links { position: fixed; inset: 72px 0 auto 0; flex-direction: column; align-items: stretch; background: #fff; border-bottom: 1px solid var(--line); padding: 14px; gap: 2px; transform: translateY(-130%); transition: transform .35s var(--ease); box-shadow: var(--shadow-md); }
+      nav.links.show { transform: translateY(0); }
+      nav.links a { padding: 13px 16px; }
+      .burger { display: block; }
+      .cards, .checklist, .foot-grid, .stats { grid-template-columns: 1fr; }
+      .hero { padding: 120px 0 60px; }
+      .sec { padding: 64px 0; }
+      .cta-band, .quote-card { padding: 36px 26px; }
+      html { scroll-padding-top: 76px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .reveal { transition: none; } }
+  </style>
+</head>
+<body>
+  <!-- Autor del sitio: Jhoger Guerrero -->
+  <div id="progress"></div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#inicio" class="brand" aria-label="Inicio">
+        <span class="logo">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 22v56"/><path d="M28 78h44"/><path d="M24 34h52"/>
+            <path d="M24 34l-11 22h22z"/><path d="M76 34l-11 22h22z"/>
+          </svg>
+        </span>
+        <span><b>Derecho Laboral</b><small>por Jhoger Guerrero</small></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+      <nav class="links" id="links">
+        <a href="#concepto">Concepto</a>
+        <a href="#principios">Principios</a>
+        <a href="#contrato">Contrato</a>
+        <a href="#derechos">Derechos</a>
+        <a href="#empleador">Empleador</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto" class="nav-cta">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <svg class="blob" style="top:-60px;right:-80px" width="420" height="420" viewBox="0 0 200 200"><path fill="#0E8C7E" opacity=".12" d="M48,-61C61,-51,69,-35,71,-19C73,-2,69,16,60,30C50,44,35,54,18,60C1,66,-18,68,-34,61C-50,54,-63,38,-69,20C-75,1,-73,-20,-63,-35C-54,-50,-37,-59,-20,-65C-3,-71,15,-73,48,-61Z" transform="translate(100 100)"/></svg>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="reveal in">
+          <span class="eyebrow"><span class="dot"></span>Guía educativa interactiva</span>
+          <h1>El <span class="accent">Derecho Laboral</span> explicado de forma clara.</h1>
+          <p class="lead">Conoce tus derechos y deberes en el trabajo: desde el contrato hasta la seguridad social, en un solo lugar y con lenguaje sencillo.</p>
+          <div class="hero-actions">
+            <a href="#concepto" class="btn btn-primary">Empezar a explorar
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contrato" class="btn btn-ghost">El contrato de trabajo</a>
+          </div>
+        </div>
+        <div class="hero-illus reveal in d1">
+          <div class="hero-card">
+            <div class="pane">
+              <svg viewBox="0 0 360 260" width="100%" fill="none">
+                <g stroke="rgba(255,255,255,.9)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="180" y1="48" x2="180" y2="196"/>
+                  <line x1="150" y1="196" x2="210" y2="196"/>
+                  <line x1="120" y1="72" x2="240" y2="72"/>
+                  <circle cx="180" cy="56" r="7" fill="#fff" stroke="none"/>
+                  <path d="M120 72 L104 120 H136 Z" fill="rgba(255,255,255,.14)"/>
+                  <path d="M240 72 L224 120 H256 Z" fill="rgba(255,255,255,.14)"/>
+                  <line x1="104" y1="120" x2="136" y2="120"/>
+                  <line x1="224" y1="120" x2="256" y2="120"/>
+                </g>
+                <g opacity=".92">
+                  <circle cx="70" cy="150" r="16" fill="#C6A15B"/>
+                  <path d="M46 210 q24 -34 48 0 Z" fill="#C6A15B"/>
+                  <circle cx="294" cy="150" r="16" fill="#5FB0A6"/>
+                  <path d="M270 210 q24 -34 48 0 Z" fill="#5FB0A6"/>
+                </g>
+                <text x="180" y="238" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="Fraunces, serif" font-size="15" font-style="italic">Equilibrio entre las partes</text>
+              </svg>
+            </div>
+          </div>
+          <div class="float-badge fb-1"><span class="ic" style="background:var(--mint)"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="#006B62" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span>Contrato justo</div>
+          <div class="float-badge fb-2"><span class="ic" style="background:#FaF4E6"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M5 7h14M5 17h14"/></svg></span>Salario digno</div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><div class="num" data-count="48">0</div><div class="lbl">Horas máximas semanales*</div></div>
+        <div class="stat reveal d1"><div class="num" data-count="15">0</div><div class="lbl">Días de vacaciones al año</div></div>
+        <div class="stat reveal d2"><div class="num" data-count="2">0</div><div class="lbl">Primas de servicios al año</div></div>
+        <div class="stat reveal d3"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">Afiliación a seguridad social</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="concepto">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">01 · Concepto</span>
+        <h2>¿Qué es el Derecho Laboral?</h2>
+        <p>Es la rama del derecho que regula las relaciones entre trabajadores y empleadores, buscando un equilibrio justo entre la productividad y la dignidad humana.</p>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+          <h3>Protege al trabajador</h3>
+          <p>Reconoce que el trabajador es la parte más débil de la relación y establece garantías mínimas irrenunciables.</p>
+        </div>
+        <div class="card reveal d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Regula la relación</h3>
+          <p>Define reglas claras sobre contratación, jornada, salario, descansos y terminación del vínculo laboral.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <h3>Garantiza dignidad</h3>
+          <p>Vela por condiciones justas, seguras y humanas, promoviendo el trabajo como fuente de desarrollo personal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="principios">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">02 · Fundamentos</span>
+        <h2>Principios fundamentales</h2>
+        <p>Pilares que inspiran e interpretan toda norma laboral. Cuando hay duda, siempre se protege al trabajador.</p>
+      </div>
+      <div class="split">
+        <div class="plist">
+          <div class="pitem reveal"><div class="n">I</div><div><h4>Principio protector</h4><p>Ante la duda, se aplica la norma más favorable al trabajador (<em>in dubio pro operario</em>).</p></div></div>
+          <div class="pitem reveal d1"><div class="n">II</div><div><h4>Irrenunciabilidad</h4><p>Los derechos mínimos establecidos por la ley no se pueden renunciar ni negociar a la baja.</p></div></div>
+          <div class="pitem reveal d2"><div class="n">III</div><div><h4>Primacía de la realidad</h4><p>Lo que ocurre en los hechos prevalece sobre lo que digan los documentos o contratos.</p></div></div>
+          <div class="pitem reveal d3"><div class="n">IV</div><div><h4>Estabilidad e igualdad</h4><p>Continuidad en el empleo y trato igual sin discriminación, a trabajo igual, salario igual.</p></div></div>
+        </div>
+        <div class="quote-card reveal d1">
+          <div class="mark">“</div>
+          <blockquote>El trabajo es un derecho y una obligación social que goza de la especial protección del Estado.</blockquote>
+          <cite>— Fundamento del Derecho Laboral moderno</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contrato">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">03 · El vínculo</span>
+        <h2>El contrato de trabajo</h2>
+        <p>Acuerdo por el cual una persona se obliga a prestar un servicio personal bajo subordinación, a cambio de un salario.</p>
+      </div>
+      <div class="cards" style="margin-bottom:60px">
+        <div class="card reveal"><span class="num-tag">Tipo 01</span><h3>Término fijo</h3><p>Tiene una fecha de inicio y fin determinadas. No puede superar los tres años, pero es renovable.</p></div>
+        <div class="card reveal d1"><span class="num-tag">Tipo 02</span><h3>Término indefinido</h3><p>No tiene fecha de finalización. Ofrece mayor estabilidad al trabajador.</p></div>
+        <div class="card reveal d2"><span class="num-tag">Tipo 03</span><h3>Obra o labor</h3><p>Dura lo que dure la obra o actividad contratada. Termina al concluir la tarea.</p></div>
+      </div>
+      <h3 class="serif reveal" style="text-align:center;font-size:1.5rem;margin-bottom:34px">Los 3 elementos esenciales</h3>
+      <div class="timeline">
+        <div class="tl-step reveal"><div class="tl-dot">1</div><h4>Actividad personal</h4><p>El servicio lo presta directamente el trabajador; no puede delegarlo en otra persona.</p></div>
+        <div class="tl-step reveal d1"><div class="tl-dot">2</div><h4>Subordinación</h4><p>El empleador puede dar órdenes e instrucciones sobre modo, tiempo y cantidad de trabajo.</p></div>
+        <div class="tl-step reveal d2"><div class="tl-dot">3</div><h4>Salario</h4><p>Toda labor genera una remuneración como contraprestación del servicio prestado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="derechos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">04 · Trabajador</span>
+        <h2>Derechos del trabajador</h2>
+        <p>Garantías mínimas que todo trabajador posee por el solo hecho de serlo.</p>
+      </div>
+      <div class="checklist">
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Salario justo</b><span>Nunca inferior al mínimo legal vigente.</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Jornada limitada</b><span>Con descansos y pago de horas extra.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Vacaciones remuneradas</b><span>Descanso anual pagado tras un año laborado.</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Prestaciones sociales</b><span>Prima, cesantías e intereses sobre cesantías.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Seguridad social</b><span>Salud, pensión y riesgos laborales.</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Asociación sindical</b><span>Libertad de organizarse y negociar colectivamente.</span></div></div>
+        <div class="check reveal"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>No discriminación</b><span>Trato igualitario y respeto a la dignidad.</span></div></div>
+        <div class="check reveal d1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Ambiente seguro</b><span>Condiciones de salud y seguridad en el trabajo.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="empleador">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">05 · Empleador</span>
+        <h2>Obligaciones del empleador</h2>
+        <p>La relación laboral también impone deberes a quien contrata.</p>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <h3>Pagar cumplidamente</h3>
+          <p>Remunerar el salario y las prestaciones en las fechas y montos acordados.</p>
+        </div>
+        <div class="card reveal d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Proteger y afiliar</h3>
+          <p>Garantizar seguridad y salud, y afiliar al trabajador al sistema de seguridad social.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+          <h3>Respetar y dar trato digno</h3>
+          <p>Guardar respeto a la dignidad del trabajador y entregar certificaciones laborales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="seguridad">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">06 · Condiciones</span>
+        <h2>Jornada, salario y seguridad social</h2>
+        <p>Los componentes que definen el día a día de la relación laboral.</p>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Jornada laboral</h3>
+          <p>La ley fija un máximo de horas diarias y semanales. El trabajo adicional se paga como horas extra o recargo.</p>
+        </div>
+        <div class="card reveal d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 5 0c0 2-5 1-5 3a2.5 2 0 0 0 5 0"/></svg></div>
+          <h3>Salario y prestaciones</h3>
+          <p>Incluye el pago ordinario más prima de servicios, cesantías, intereses y vacaciones.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Seguridad social</h3>
+          <p>Cubre salud (EPS), pensión (AFP) y riesgos laborales (ARL): la red de protección del trabajador.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">07 · Dudas comunes</span>
+        <h2>Preguntas frecuentes</h2>
+        <p>Respuestas breves a las inquietudes más habituales.</p>
+      </div>
+      <div class="faq">
+        <div class="q reveal">
+          <button>¿El contrato de trabajo debe ser siempre por escrito? <span class="plus">+</span></button>
+          <div class="a"><p>No siempre. El contrato verbal también es válido, pero el escrito brinda mayor seguridad y claridad para ambas partes. Algunos tipos, como el de término fijo, sí deben constar por escrito.</p></div>
+        </div>
+        <div class="q reveal">
+          <button>¿Puedo renunciar a mis prestaciones sociales? <span class="plus">+</span></button>
+          <div class="a"><p>No. Los derechos mínimos reconocidos por la ley son irrenunciables. Cualquier acuerdo que los desconozca carece de validez.</p></div>
+        </div>
+        <div class="q reveal">
+          <button>¿Qué es el periodo de prueba? <span class="plus">+</span></button>
+          <div class="a"><p>Es una etapa inicial del contrato en la que ambas partes evalúan la conveniencia de continuar. Debe pactarse por escrito y tiene una duración máxima limitada por la ley.</p></div>
+        </div>
+        <div class="q reveal">
+          <button>¿Cómo puede terminar un contrato de trabajo? <span class="plus">+</span></button>
+          <div class="a"><p>Por mutuo acuerdo, por vencimiento del plazo, por terminación de la obra, por decisión unilateral con justa causa, o sin justa causa (lo que puede generar el pago de una indemnización).</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <span class="ring" style="width:320px;height:320px;top:-120px;right:-80px"></span>
+        <span class="ring" style="width:220px;height:220px;bottom:-110px;left:-40px"></span>
+        <h2>Conocer tus derechos es el primer paso</h2>
+        <p>Este sitio reúne, de forma sencilla, los conceptos clave del Derecho Laboral para estudiantes, trabajadores y empleadores.</p>
+        <a href="#inicio" class="btn btn-white">Volver al inicio
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004D46" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="#inicio" class="brand" style="margin-bottom:14px">
+            <span class="logo"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 22v56"/><path d="M28 78h44"/><path d="M24 34h52"/><path d="M24 34l-11 22h22z"/><path d="M76 34l-11 22h22z"/></svg></span>
+            <span><b>Derecho Laboral</b><small>por Jhoger Guerrero</small></span>
+          </a>
+          <p style="font-size:.92rem;max-width:34ch;color:#9fb0ac">Proyecto educativo creado con fines académicos para comprender las bases del Derecho Laboral.</p>
+        </div>
+        <div>
+          <h5>Secciones</h5>
+          <a href="#concepto">Concepto</a>
+          <a href="#principios">Principios</a>
+          <a href="#contrato">Contrato</a>
+          <a href="#derechos">Derechos</a>
+        </div>
+        <div>
+          <h5>Más</h5>
+          <a href="#empleador">Empleador</a>
+          <a href="#seguridad">Seguridad social</a>
+          <a href="#faq">Preguntas frecuentes</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 · Sitio creado por <b>Jhoger Guerrero</b>. Todos los derechos reservados.</span>
+        <span>Diseñado y desarrollado por <b>Jhoger Guerrero</b></span>
+      </div>
+      <p style="font-size:.76rem;color:#6b7c78;margin-top:14px">*Las cifras son de referencia general con fines educativos y pueden variar según la legislación vigente de cada país.</p>
+    </div>
+                                      </footer>
+
+  <script>
+    /* Autor: Jhoger Guerrero */
+    const progress = document.getElementById('progress');
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      progress.style.width = pct + '%';
+      nav.classList.toggle('scrolled', h.scrollTop > 10);
+    }, { passive: true });
+
+    const burger = document.getElementById('burger');
+    const links = document.getElementById('links');
+    burger.addEventListener('click', () => links.classList.toggle('show'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('show')));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .14 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const countIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
+        let cur = 0; const step = Math.max(1, Math.ceil(target / 40));
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= target) { cur = target; clearInterval(t); }
+          el.textContent = cur + suffix;
+        }, 28);
+        countIO.unobserve(el);
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+    document.querySelectorAll('.q button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const q = btn.parentElement, a = q.querySelector('.a');
+        const open = q.classList.toggle('open');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : 0;
+      });
+    });
+
+    const navMap = {};
+    document.querySelectorAll('nav.links a[href^="#"]').forEach(a => navMap[a.getAttribute('href').slice(1)] = a);
+    const secIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const a = navMap[e.target.id];
+        if (a && e.isIntersecting) {
+          document.querySelectorAll('nav.links a').forEach(x => x.classList.remove('active'));
+          if (!a.classList.contains('nav-cta')) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => secIO.observe(s));
+  </script>
+</body>
+</html>
